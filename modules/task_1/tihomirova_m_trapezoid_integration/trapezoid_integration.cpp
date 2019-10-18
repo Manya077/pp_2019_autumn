@@ -11,23 +11,21 @@ double Trapezoid_area(double(*f)(double), double x1, double x2, double h) {
 double  Parallelization(double(*f)(double), double a, double b, int n) {
   if (n <= 0)
     throw - 1;
-  double Integral; // итоговый интеграл
+  double Integral;
   double h;
   int k1, k2;
   h = (b - a) / n;
   int rank, size;
   MPI_Comm_size(MPI_COMM_WORLD, &size);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-  k1 = n / size;// расчитываем по сколько трапеций на каждый процесс
-  double S = 0.0; //"площадь" трапеции, может быть отрицательной
+  k1 = n / size;
+  double S = 0.0;
   double x1, x2;
-  //для целой части
   for (int i = rank * k1; i < k1 * (rank + 1); i++) {
     x1 = a + h * i;
     x2 = x1 + h;
     S += Trapezoid_area(f, x1, x2, h);
   }
-  //для остатка
   if (rank == 0) {
     for (int i = k1 * size; i < n; i++) {
       x1 = a + h * i;

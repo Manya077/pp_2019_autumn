@@ -3,8 +3,8 @@
 #define MODULES_TASK_1_TIHOMIROVA_M_TRAPEZOID_INTEGRATION_TRAPEZOID_INTEGRATION_H_
 #include <mpi.h>
 
-double Trapezoid_area(double(*f)(double), double x1, double x2, double h);//нахождение площади трапеции
-double  Parallelization(double(*f)(double), double a, double b, int n);//распараллеливание
+double Trapezoid_area(double(*f)(double), double x1, double x2, double h);
+double  Parallelization(double(*f)(double), double a, double b, int n);
 
-#endif // MODULES_TASK_1_TIHOMIROVA_M_TRAPEZOID_INTEGRATION_TRAPEZOID_INTEGRATION_H_
+#endif  //  MODULES_TASK_1_TIHOMIROVA_M_TRAPEZOID_INTEGRATION_TRAPEZOID_INTEGRATION_H_
 
