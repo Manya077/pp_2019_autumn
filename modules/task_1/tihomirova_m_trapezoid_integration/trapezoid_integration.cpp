@@ -13,7 +13,7 @@ double  Parallelization(double(*f)(double), double a, double b, int n) {
     throw - 1;
   double Integral;
   double h;
-  int k1, k2;
+  int k1;
   h = (b - a) / n;
   int rank, size;
   MPI_Comm_size(MPI_COMM_WORLD, &size);
