@@ -27,7 +27,7 @@ TEST(trapezoid_integration, test2_integral_of_trigonometric_function1) {
 TEST(trapezoid_integration, test3_integral_of_trigonometric_function2) {
   int rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-  double rez = Parallelization(cos, 0, 3.141, 1000);
+  double rez = Parallelization(cos, 0, 3.14159, 1000);
   if (rank == 0) {
     ASSERT_NEAR(rez, 0.0, 1e-4);
   }
